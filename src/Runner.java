@@ -1,11 +1,13 @@
 public class Runner {
 
     public static void main(String[] args) {
-        System.out.println(sum(Integer.parseInt(args[0]), Integer.parseInt(args[1])));
-    }
+        Car car = new Car();
+        Car car2 = new Car();
+        car.refuel(10);
+        car.accelerate(100);
+        car.accelerate(100);
+        car.fullBreak();
 
-    static int sum(int a, int b) {
-        int result = a+b;
-        return result;
+        car2.accelerate(1000);
     }
 }
