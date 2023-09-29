@@ -3,21 +3,13 @@ import java.util.Random;
 public class Runner {
 
     public static void main(String[] args) {
-        Fighter f1 = new Fighter();
-        Weapon w1 = new Weapon();
-        w1.damage = 10;
-        Armor a1 = new Armor();
-        a1.defense = 2;
-        f1.weapon = w1;
-        f1.armor = a1;
+        Weapon w1 = new Weapon(10);
+        Armor a1 = new Armor(2);
+        Fighter f1 = new Fighter(w1,a1);
+        Weapon w2 = new Weapon(5);
+        Armor a2 = new Armor(4);
 
-        Fighter f2 = new Fighter();
-        Weapon w2 = new Weapon();
-        w2.damage = 5;
-        Armor a2 = new Armor();
-        a2.defense = 4;
-        f2.weapon = w2;
-        f2.armor = a2;
+        Fighter f2 = new Fighter(w2, a2);
 
         Fighter winner = fight(f1, f2);
         if(f1.isAlive())
