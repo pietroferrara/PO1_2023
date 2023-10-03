@@ -1,3 +1,4 @@
+//Inspired by https://www.dndbeyond.com/classes/fighter
 public class Fighter {
     int experience_points = 0;
     Weapon weapon;
