@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Runner {
+    int i;
 
     public static void main(String[] args) {
         Weapon w1 = new Weapon(10);
@@ -11,10 +12,20 @@ public class Runner {
 
         Fighter f2 = new Fighter(w2, a2);
 
-        Fighter winner = fight(f1, f2);
-        if(f1.isAlive())
-            System.out.println("The first fighter won!");
-        else System.out.println("The second fighter won!");
+        for(int j = 0; j < 3; j++) {
+
+            for(int i = 0; i < 150; i++) {
+                Fighter winner = fight(f1, f2);
+                if (f1.isAlive()) {
+                    System.out.println("The fighter " + f1.id + " won!");
+                    f2 = new Fighter(w2, a2);
+                } else {
+                    System.out.println("The fighter " + f2.id + " won!");
+                    f1 = new Fighter(w1, a1);
+                }
+            }
+            Fighter.reset_world();
+        }
     }
 
     private static Fighter fight(Fighter f1, Fighter f2) {
