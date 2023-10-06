@@ -1,3 +1,8 @@
+package it.unive.dais.po1.dandd;
+
+import it.unive.dais.po1.dandd.armors.Armor;
+import it.unive.dais.po1.dandd.weapons.Weapon;
+
 import java.util.Random;
 
 //Inspired by https://www.dndbeyond.com/classes/fighter
@@ -8,10 +13,10 @@ public class Fighter {
     static final int MAX_ID = 100;
 
     final int id;
-    int experience_points;
+    private int experience_points;
     Weapon weapon;
     Armor armor;
-    int life_points;
+    private int life_points;
 
 
     Fighter(Weapon w1, Armor a1) {
@@ -23,7 +28,7 @@ public class Fighter {
         this.life_points = life_points;
         this.weapon = w1;
         this.armor = a1;
-        this.id = Fighter.number_of_instantiated_fighters;
+        this.id = this.number_of_instantiated_fighters;
         Fighter.number_of_instantiated_fighters = Fighter.number_of_instantiated_fighters+1;
         if(Fighter.number_of_instantiated_fighters > Fighter.MAX_ID)
             Fighter.reset_world();

@@ -1,3 +1,8 @@
+package it.unive.dais.po1.dandd;
+
+import it.unive.dais.po1.dandd.armors.Armor;
+import it.unive.dais.po1.dandd.weapons.Weapon;
+
 import java.util.Random;
 
 public class Runner {
@@ -15,6 +20,11 @@ public class Runner {
         for(int j = 0; j < 3; j++) {
 
             for(int i = 0; i < 150; i++) {
+                /*if(new Random().nextFloat()>0.95) {
+                    System.out.println("Increasing the power of all weapons");
+                    w1.damage = w1.damage*2;
+                    w2.damage = w2.damage*2;
+                }*/
                 Fighter winner = fight(f1, f2);
                 if (f1.isAlive()) {
                     System.out.println("The fighter " + f1.id + " won!");

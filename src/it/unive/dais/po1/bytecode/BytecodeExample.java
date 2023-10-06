@@ -1,3 +1,5 @@
+package it.unive.dais.po1.bytecode;
+
 public class BytecodeExample {
 
     public static void main(String[] args) {
