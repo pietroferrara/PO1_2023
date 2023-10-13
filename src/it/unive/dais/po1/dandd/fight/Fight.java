@@ -4,6 +4,14 @@ import it.unive.dais.po1.dandd.characters.Fighter;
 
 import java.util.Random;
 
+
+/**
+ * This class is aimed at representing a fight between two
+ * fighters in D&D
+ *
+ * @since 1.0
+ * @author Pietro Ferrara pietro.ferrara@unive.it
+ */
 public class Fight {
     private Fighter f1, f2;
 

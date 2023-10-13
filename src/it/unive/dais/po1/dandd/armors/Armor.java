@@ -1,5 +1,12 @@
 package it.unive.dais.po1.dandd.armors;
 
+
+/**
+ * This class is aimed at representing an armor in D&D
+ *
+ * @since 1.0
+ * @author Pietro Ferrara pietro.ferrara@unive.it
+ */
 public class Armor {
     private int defense;
 
