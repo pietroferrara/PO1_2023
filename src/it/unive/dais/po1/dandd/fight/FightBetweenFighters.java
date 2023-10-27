@@ -12,14 +12,24 @@ import java.util.Random;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public class Fight {
+public class FightBetweenFighters {
     private Fighter f1, f2;
 
-    public Fight(Fighter f1, Fighter f2) {
+    public FightBetweenFighters(Fighter f1, Fighter f2) {
         this.f1 = f1;
         this.f2 = f2;
     }
 
+    /**
+     *
+     * @requires true
+     * @ensures
+     *     (f2.getLifePoints() == pre(f2.getLifePoints())-f1.weapon.damage AND
+     *       f1.getWeapon().getDamage() == pre(f1.getWeapon().getDamage())-1)
+     *     OR
+     *     (f1.life_points == pre(f1.life_points)-f2.weapon.damage AND
+     *       f2.weapon.damage == pre(f2.weapon.damage)-1)
+     */
     private boolean singleFight() {
         Random random = new Random();
         if(f1.isAlive() && f2.isAlive()) {
@@ -35,6 +45,18 @@ public class Fight {
         return f1.isAlive() && f2.isAlive();
     }
 
+    /**
+     *
+     * @requires true
+     * @ensures
+     *      (return == 1 ->
+     *          f1.isAlive() && ! f2.isAlive() &&
+     *          f1.getLevel() >= pre(f1.getLevel()))
+     *         &&
+     *      (return == 2 ->
+     *          f2.isAlive() && ! f1.isAlive() &&
+     *          f2.getLevel() >= pre(f2.getLevel()))
+     */
     public int fight() {
         while(this.singleFight());
         if(f1.isAlive()) {

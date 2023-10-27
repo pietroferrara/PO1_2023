@@ -2,13 +2,12 @@ package it.unive.dais.po1.dandd;
 
 import it.unive.dais.po1.dandd.armors.Armor;
 import it.unive.dais.po1.dandd.characters.Fighter;
-import it.unive.dais.po1.dandd.fight.Fight;
+import it.unive.dais.po1.dandd.fight.FightBetweenFighters;
 import it.unive.dais.po1.dandd.weapons.Weapon;
 
 import java.util.Arrays;
-import java.util.Random;
 
-public class Runner {
+public class RunnerFighter {
     int i;
 
     public static void main(String[] args) {
@@ -27,7 +26,7 @@ public class Runner {
         for(int j = 0; j < 3; j++) {
 
             for(int i = 0; i < 150; i++) {
-                int winner = new Fight(f1, f2).fight();
+                int winner = new FightBetweenFighters(f1, f2).fight();
                 switch(winner) {
                     case 1:
                         System.out.println("The fighter " + f1.getId() + " won!");

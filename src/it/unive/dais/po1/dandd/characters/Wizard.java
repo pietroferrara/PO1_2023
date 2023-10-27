@@ -1,25 +1,21 @@
 package it.unive.dais.po1.dandd.characters;
 
 import it.unive.dais.po1.dandd.armors.Armor;
+import it.unive.dais.po1.dandd.magic.Magic;
 import it.unive.dais.po1.dandd.weapons.Weapon;
 
-import java.util.Random;
-
 /**
- * This class is aimed at representing a fighter in D&D
- * Inspired by <a href="https://www.dndbeyond.com/classes/fighter">this webpage</a>
- *
- * @since 1.0
- * @author Pietro Ferrara pietro.ferrara@unive.it
+ * https://www.dndbeyond.com/classes/wizard
  */
-public class Fighter {
+public class Wizard {
 
-    private static int number_of_instantiated_fighters = 0;
+
+    private static int number_of_instantiated_wizards = 0;
 
     private static final int MAX_ID = 100;
 
     /**
-     * The identifier of the fighter
+     * The identifier of the wizard
      */
     public final int id;
 
@@ -27,39 +23,34 @@ public class Fighter {
      * @invariant experience_points >= 0
      *          && experience_points >= pre(experience_points)
      */
-    int experience_points;
-    private Weapon weapon;
-    private Armor armor;
-
+    private int experience_points;
     /**
      * @invariant life_points >= 0
      */
     private int life_points;
 
+    private Magic magia;
+
 
     /**
      * Initializes a fighter without any experience and with full life points
-     * @param w1 The initial weapon of the fighter
-     * @param a1 The initial armor of the fighter
      */
-    public Fighter(Weapon w1, Armor a1) {
-        this(0, 100, w1, a1);
+    public Wizard(Magic m1) {
+
+        this(0, 100, m1);
     }
 
     /**
      * Creates a fighter
      * @param experience_points The initial amount of experience points
      * @param life_points The initial amount of life points
-     * @param w1 The initial weapon of the fighter
-     * @param a1 The initial armor of the fighter
      */
-    Fighter(int experience_points, int life_points, Weapon w1, Armor a1) {
+    Wizard(int experience_points, int life_points, Magic m1) {
         this.experience_points = experience_points;
         this.life_points = life_points;
-        this.weapon = w1;
-        this.armor = a1;
-        this.id = this.number_of_instantiated_fighters;
-        Fighter.number_of_instantiated_fighters = Fighter.number_of_instantiated_fighters+1;
+        this.magia = m1;
+        this.id = this.number_of_instantiated_wizards;
+        Wizard.number_of_instantiated_wizards = Wizard.number_of_instantiated_wizards+1;
     }
 
     /**
@@ -86,8 +77,8 @@ public class Fighter {
      */
     //
     public void getDamaged(int damaged_life_points) {
-        int overallDamage = damaged_life_points-armor.getDefense();
-        this.armor.setDefense(this.armor.getDefense()-1);
+        int overallDamage = damaged_life_points-magia.getDefense();
+        this.magia.setDefense(this.magia.getDefense()-1);
         if(overallDamage>0) {
             if (overallDamage <= life_points)
                 life_points = life_points - overallDamage;
@@ -107,13 +98,11 @@ public class Fighter {
         experience_points = experience_points + f.experience_points/10+10;
     }
 
-
-    /**
-     * Return the damage inflicted by the weapon of the fighter
-     * @return the damage inflicted
-     */
-    public int getWeaponDamage() {
-        return this.weapon.getDamage();
+    //TODO: FIX THIS
+    public void defeated(Wizard w) {
+        //isAlive()
+        //! f.isAlive()
+        experience_points = experience_points + w.experience_points/10+10;
     }
 
     /**
@@ -124,12 +113,8 @@ public class Fighter {
         return this.id;
     }
 
-    /**
-     * Changes the damage of the fighter's weapon with the given value
-     * @param i The new damage of the weapon
-     * @since 1.0
-     */
-    public void setWeaponDamage(int i) {
-        this.weapon.setDamage(i);
+    public int getMagicDamage() {
+        return this.magia.getDamage();
     }
+
 }
