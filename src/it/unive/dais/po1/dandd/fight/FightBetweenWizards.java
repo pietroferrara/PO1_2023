@@ -1,9 +1,6 @@
 package it.unive.dais.po1.dandd.fight;
 
-import it.unive.dais.po1.dandd.characters.Fighter;
-import it.unive.dais.po1.dandd.characters.Wizard;
-
-import java.util.Random;
+import it.unive.dais.po1.dandd.characters.magicians.Wizard;
 
 
 /**
@@ -21,7 +18,7 @@ public class FightBetweenWizards {
         this.w2 = w2;
     }
 
-    private boolean singleFight() {
+    /*private boolean singleFight() {
         Random random = new Random();
         if(w1.isAlive() && w2.isAlive()) {
             if(random.nextDouble()>=0.5) {
@@ -32,7 +29,7 @@ public class FightBetweenWizards {
             }
         }
         return w1.isAlive() && w2.isAlive();
-    }
+    }*/
 
     /**
      *
@@ -46,7 +43,7 @@ public class FightBetweenWizards {
      *          w2.isAlive() && ! w1.isAlive() &&
      *          w2.getLevel() >= pre(w2.getLevel()))
      */
-    public int fight() {
+    /*public int fight() {
         while(this.singleFight());
         if(w1.isAlive()) {
             w1.defeated(w2);
@@ -55,6 +52,6 @@ public class FightBetweenWizards {
         else {w2.defeated(w1);
             return 2;
         }
-    }
+    }*/
 
 }

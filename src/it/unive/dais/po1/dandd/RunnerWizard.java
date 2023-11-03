@@ -1,18 +1,15 @@
 package it.unive.dais.po1.dandd;
 
-import it.unive.dais.po1.dandd.armors.Armor;
-import it.unive.dais.po1.dandd.characters.Fighter;
-import it.unive.dais.po1.dandd.characters.Wizard;
-import it.unive.dais.po1.dandd.fight.FightBetweenFighters;
-import it.unive.dais.po1.dandd.fight.FightBetweenWizards;
-import it.unive.dais.po1.dandd.magic.Magic;
-import it.unive.dais.po1.dandd.weapons.Weapon;
-
-import java.util.Arrays;
+import it.unive.dais.po1.dandd.characters.Figure;
 
 public class RunnerWizard {
     int i;
 
+    public static void main(String[] args) {
+        //Figure f = new Figure();
+    }
+
+/*
     public static void main(String[] args) {
         int[] foo = {3, 10, -1, 4};
 
@@ -41,5 +38,5 @@ public class RunnerWizard {
             }
         }
     }
-
+*/
 }

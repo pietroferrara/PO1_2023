@@ -3,8 +3,6 @@ package it.unive.dais.po1.dandd.characters;
 import it.unive.dais.po1.dandd.armors.Armor;
 import it.unive.dais.po1.dandd.weapons.Weapon;
 
-import java.util.Random;
-
 /**
  * This class is aimed at representing a fighter in D&D
  * Inspired by <a href="https://www.dndbeyond.com/classes/fighter">this webpage</a>
@@ -12,30 +10,12 @@ import java.util.Random;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public class Fighter {
+public class Fighter extends Figure {
 
-    private static int number_of_instantiated_fighters = 0;
 
-    private static final int MAX_ID = 100;
 
-    /**
-     * The identifier of the fighter
-     */
-    public final int id;
-
-    /**
-     * @invariant experience_points >= 0
-     *          && experience_points >= pre(experience_points)
-     */
-    int experience_points;
     private Weapon weapon;
     private Armor armor;
-
-    /**
-     * @invariant life_points >= 0
-     */
-    private int life_points;
-
 
     /**
      * Initializes a fighter without any experience and with full life points
@@ -54,28 +34,9 @@ public class Fighter {
      * @param a1 The initial armor of the fighter
      */
     Fighter(int experience_points, int life_points, Weapon w1, Armor a1) {
-        this.experience_points = experience_points;
-        this.life_points = life_points;
+        super(experience_points, life_points);
         this.weapon = w1;
         this.armor = a1;
-        this.id = this.number_of_instantiated_fighters;
-        Fighter.number_of_instantiated_fighters = Fighter.number_of_instantiated_fighters+1;
-    }
-
-    /**
-     *
-     * @return true iff the current fighter is alive
-     */
-    public boolean isAlive() {
-        return this.life_points>0;
-    }
-
-    /**
-     * Provides the experience level of the fighter
-     * @return The number representing the level of the fighter
-     */
-    public int getLevel() {
-        return experience_points/1000+1;
     }
 
     /**
@@ -85,7 +46,7 @@ public class Fighter {
      * @param damaged_life_points the amount of life points to be subtracted.
      */
     //
-    public void getDamaged(int damaged_life_points) {
+    /*public void getDamaged(int damaged_life_points) {
         int overallDamage = damaged_life_points-armor.getDefense();
         this.armor.setDefense(this.armor.getDefense()-1);
         if(overallDamage>0) {
@@ -93,19 +54,7 @@ public class Fighter {
                 life_points = life_points - overallDamage;
             else life_points = 0;
         }
-    }
-
-    /**
-     * The current fighter defeated the fighter passed as parameter increasing the
-     * experience points accordingly.
-     * @param f The defeated fighter
-     */
-    //
-    public void defeated(Fighter f) {
-        //isAlive()
-        //! f.isAlive()
-        experience_points = experience_points + f.experience_points/10+10;
-    }
+    }*/
 
 
     /**
@@ -114,14 +63,6 @@ public class Fighter {
      */
     public int getWeaponDamage() {
         return this.weapon.getDamage();
-    }
-
-    /**
-     * Returns the id of the fighter
-     * @return the id of the fighter
-     */
-    public int getId() {
-        return this.id;
     }
 
     /**
