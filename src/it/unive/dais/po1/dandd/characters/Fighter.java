@@ -1,7 +1,7 @@
 package it.unive.dais.po1.dandd.characters;
 
-import it.unive.dais.po1.dandd.armors.Armor;
-import it.unive.dais.po1.dandd.weapons.Weapon;
+import it.unive.dais.po1.dandd.protection.Armor;
+import it.unive.dais.po1.dandd.weapon.fighter.Sword;
 
 /**
  * This class is aimed at representing a fighter in D&D
@@ -14,7 +14,7 @@ public class Fighter extends Figure {
 
 
 
-    private Weapon weapon;
+    private Sword weapon;
     private Armor armor;
 
     /**
@@ -22,7 +22,7 @@ public class Fighter extends Figure {
      * @param w1 The initial weapon of the fighter
      * @param a1 The initial armor of the fighter
      */
-    public Fighter(Weapon w1, Armor a1) {
+    public Fighter(Sword w1, Armor a1) {
         this(0, 100, w1, a1);
     }
 
@@ -33,7 +33,7 @@ public class Fighter extends Figure {
      * @param w1 The initial weapon of the fighter
      * @param a1 The initial armor of the fighter
      */
-    Fighter(int experience_points, int life_points, Weapon w1, Armor a1) {
+    Fighter(int experience_points, int life_points, Sword w1, Armor a1) {
         super(experience_points, life_points);
         this.weapon = w1;
         this.armor = a1;
@@ -43,7 +43,7 @@ public class Fighter extends Figure {
      * The fighter got damaged by the given amount of life points.
      * If the amount of subtracted life points is greater than the number of
      * available life points, the fighter dies with no life points.
-     * @param damaged_life_points the amount of life points to be subtracted.
+     *  damaged_life_points the amount of life points to be subtracted.
      */
     //
     /*public void getDamaged(int damaged_life_points) {
@@ -57,20 +57,9 @@ public class Fighter extends Figure {
     }*/
 
 
-    /**
-     * Return the damage inflicted by the weapon of the fighter
-     * @return the damage inflicted
-     */
-    public int getWeaponDamage() {
+    @Override
+    public int getDamage() {
         return this.weapon.getDamage();
     }
 
-    /**
-     * Changes the damage of the fighter's weapon with the given value
-     * @param i The new damage of the weapon
-     * @since 1.0
-     */
-    public void setWeaponDamage(int i) {
-        this.weapon.setDamage(i);
-    }
 }

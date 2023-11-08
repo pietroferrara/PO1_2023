@@ -42,8 +42,11 @@ public abstract class Figure {
         Figure.number_of_instantiated_characters = Figure.number_of_instantiated_characters+1;
     }
 
+    /**
+     * Return the damage inflicted by the figure's offensive mean
+     * @return the damage inflicted
+     */
     abstract public int getDamage();
-    abstract public void setDamage(int damage);
 
     /**
      *

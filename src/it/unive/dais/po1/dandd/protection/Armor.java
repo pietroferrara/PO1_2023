@@ -1,4 +1,4 @@
-package it.unive.dais.po1.dandd.armors;
+package it.unive.dais.po1.dandd.protection;
 
 
 /**
@@ -7,8 +7,7 @@ package it.unive.dais.po1.dandd.armors;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public class Armor {
-    private int defense;
+public class Armor extends Protection{
 
     public Armor(int i) {
         if(i>=0)
@@ -20,9 +19,4 @@ public class Armor {
         return this.defense;
     }
 
-    public void setDefense(int i) {
-        if(i>=0)
-            this.defense = i;
-
-    }
 }

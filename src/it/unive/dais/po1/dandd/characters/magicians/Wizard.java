@@ -1,9 +1,7 @@
 package it.unive.dais.po1.dandd.characters.magicians;
 
-import it.unive.dais.po1.dandd.armors.Armor;
 import it.unive.dais.po1.dandd.characters.Figure;
-import it.unive.dais.po1.dandd.magic.Magic;
-import it.unive.dais.po1.dandd.weapons.Weapon;
+import it.unive.dais.po1.dandd.weapon.magic.Magic;
 
 /**
  * https://www.dndbeyond.com/classes/wizard
@@ -49,7 +47,8 @@ public class Wizard extends Figure {
         }
     }*/
 
-    public int getMagicDamage() {
+    @Override
+    public int getDamage() {
         return this.magia.getDamage();
     }
 
