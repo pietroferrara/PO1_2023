@@ -34,10 +34,10 @@ public class FightBetweenFigure {
         Random random = new Random();
         if(c1.isAlive() && c2.isAlive()) {
             if(random.nextDouble()>=0.5) {
-                c2.getDamaged(c1.getDamage());
+                c2.decreaseLifePoints(c1.getDamage());
             }
             else {
-                c1.getDamaged(c2.getDamage());
+                c1.decreaseLifePoints(c2.getDamage());
             }
         }
         return c1.isAlive() && c2.isAlive();

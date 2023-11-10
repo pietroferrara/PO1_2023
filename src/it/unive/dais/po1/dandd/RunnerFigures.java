@@ -10,6 +10,7 @@ public class RunnerFigures {
     int i;
 
     public static void main(String[] args) {
+
         Sword w1 = new Sword(10);
         Armor a1 = new Armor(2);
         Fighter f1 = new Fighter(w1,a1);

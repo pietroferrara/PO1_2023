@@ -6,9 +6,10 @@ import it.unive.dais.po1.dandd.weapon.magic.Magic;
 /**
  * https://www.dndbeyond.com/classes/wizard
  */
-public class Wizard extends Figure {
+final public class Wizard extends Figure {
 
     private Magic magia;
+
 
 
     /**
@@ -50,6 +51,10 @@ public class Wizard extends Figure {
     @Override
     public int getDamage() {
         return this.magia.getDamage();
+    }
+
+    public Magic getMagia() {
+        return this.magia;
     }
 
 }

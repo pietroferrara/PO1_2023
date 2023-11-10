@@ -1,5 +1,8 @@
 package it.unive.dais.po1.dandd.characters;
 
+import it.unive.dais.po1.dandd.characters.magicians.Wizard;
+import it.unive.dais.po1.dandd.weapon.magic.Magic;
+
 /**
  * This class is aimed at representing a fighter in D&D
  * Inspired by <a href="https://www.dndbeyond.com/classes/fighter">this webpage</a>
@@ -52,7 +55,7 @@ public abstract class Figure {
      *
      * @return true iff the current fighter is alive
      */
-    public boolean isAlive() {
+    final public boolean isAlive() {
         return this.life_points>0;
     }
 
@@ -60,7 +63,7 @@ public abstract class Figure {
      * Provides the experience level of the fighter
      * @return The number representing the level of the fighter
      */
-    public int getLevel() {
+    final public int getLevel() {
         return experience_points/1000+1;
     }
 
@@ -71,7 +74,7 @@ public abstract class Figure {
      * @param damaged_life_points the amount of life points to be subtracted.
      */
     //
-    public void getDamaged(int damaged_life_points) {
+    public void decreaseLifePoints(int damaged_life_points) {
         if(damaged_life_points>0) {
             if (damaged_life_points <= life_points)
                 life_points = life_points - damaged_life_points;
@@ -85,10 +88,16 @@ public abstract class Figure {
      * @param f The defeated fighter
      */
     //
-    public void defeated(Figure f) {
+    final public void defeated(Figure f) {
         //isAlive()
         //! f.isAlive()
         experience_points = experience_points + f.experience_points/10+10;
+        if(f instanceof Fighter) {
+        }
+        else if (f instanceof Wizard) {
+            Wizard w = (Wizard) f;
+            Magic m = w.getMagia();
+        }
     }
 
 
