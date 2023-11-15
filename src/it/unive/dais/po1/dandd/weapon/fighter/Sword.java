@@ -8,7 +8,9 @@ import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public class Sword extends OffensiveWeapon  {
+public class Sword implements OffensiveWeapon {
+
+    private int damage;
 
 
     /**
@@ -33,5 +35,10 @@ public class Sword extends OffensiveWeapon  {
         if(result > 1)
             this.damage = this.damage - 1;
         return result;
+    }
+
+    @Override
+    public int getInnerDamage() {
+        return this.damage;
     }
 }

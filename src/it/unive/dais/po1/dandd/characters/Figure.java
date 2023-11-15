@@ -1,6 +1,8 @@
 package it.unive.dais.po1.dandd.characters;
 
 import it.unive.dais.po1.dandd.characters.magicians.Wizard;
+import it.unive.dais.po1.dandd.protection.Protection;
+import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
 import it.unive.dais.po1.dandd.weapon.magic.Magic;
 
 /**
@@ -88,12 +90,25 @@ public abstract class Figure {
      * @param f The defeated fighter
      */
     //
-    public void defeated(Figure f) {
+    final public void defeated(Figure f) {
         //isAlive()
         //! f.isAlive()
         experience_points = experience_points + f.experience_points/10+10;
+        Protection defeatedprot = f.getProtection();
+        OffensiveWeapon offensiveweap = f.getOffensiveWeapon();
+        if(defeatedprot.getInfoDefence() > this.getProtection().getInfoDefence())
+            this.setProtection(defeatedprot);
+        if(offensiveweap.getInfoDamage()>this.getOffensiveWeapon().getInfoDamage())
+            this.setOffensiveWeapon(offensiveweap);
     }
 
+    public abstract void setOffensiveWeapon(OffensiveWeapon offensiveweap);
+
+    public abstract void setProtection(Protection defeatedprot);
+
+    public abstract OffensiveWeapon getOffensiveWeapon();
+
+    public abstract Protection getProtection();
 
 
     /**

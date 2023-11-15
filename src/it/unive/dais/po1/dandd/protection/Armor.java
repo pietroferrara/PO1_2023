@@ -26,4 +26,5 @@ public class Armor implements Protection{
         return this.defense;
     }
 
+
 }

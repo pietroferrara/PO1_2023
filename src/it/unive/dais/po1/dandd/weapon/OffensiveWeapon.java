@@ -1,16 +1,15 @@
 package it.unive.dais.po1.dandd.weapon;
 
-public abstract class OffensiveWeapon {
-    protected int damage;
-
-    public int getDamage() {
-        return this.damage;
+public interface OffensiveWeapon {
+    default public int getDamage() {
+        return this.getInnerDamage();
     }
 
-    final public int getInfoDamage() {
-        return this.damage;
+    default public int getInfoDamage() {
+        return this.getInnerDamage();
     }
 
+    /*public*/ int getInnerDamage();
 
 
 }

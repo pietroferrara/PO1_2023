@@ -2,6 +2,8 @@ package it.unive.dais.po1.dandd.characters.magicians;
 
 import it.unive.dais.po1.dandd.characters.Fighter;
 import it.unive.dais.po1.dandd.characters.Figure;
+import it.unive.dais.po1.dandd.protection.Protection;
+import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
 import it.unive.dais.po1.dandd.weapon.magic.Magic;
 
 /**
@@ -32,22 +34,6 @@ final public class Wizard extends Figure {
     }
 
 
-    /**
-     * The fighter got damaged by the given amount of life points.
-     * If the amount of subtracted life points is greater than the number of
-     * available life points, the fighter dies with no life points.
-     * @param damaged_life_points the amount of life points to be subtracted.
-     */
-    //
-    /*public void getDamaged(int damaged_life_points) {
-        int overallDamage = damaged_life_points-magia.getDefense();
-        this.magia.setDefense(this.magia.getDefense()-1);
-        if(overallDamage>0) {
-            if (overallDamage <= life_points)
-                life_points = life_points - overallDamage;
-            else life_points = 0;
-        }
-    }*/
 
     @Override
     public int getDamage() {
@@ -59,14 +45,25 @@ final public class Wizard extends Figure {
     }
 
     @Override
-    public void defeated(Figure f) {
-        super.defeated(f);
-        if (f instanceof Wizard) {
-            Wizard w = (Wizard) f;
-            Magic m = w.getMagia();
-            if(m.getInfoDamage()+m.getInfoDefence() >
-                this.magia.getInfoDefence()+this.magia.getInfoDamage())
-                this.magia = m;
-        }
+    public void setOffensiveWeapon(OffensiveWeapon offensiveweap) {
+        if(offensiveweap instanceof Magic)
+            this.magia = (Magic) offensiveweap;
+    }
+
+    @Override
+    public void setProtection(Protection defeatedprot) {
+        if(defeatedprot instanceof Magic)
+            this.magia = (Magic) defeatedprot;
+
+    }
+
+    @Override
+    public OffensiveWeapon getOffensiveWeapon() {
+        return this.magia;
+    }
+
+    @Override
+    public Protection getProtection() {
+        return this.magia;
     }
 }

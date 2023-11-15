@@ -3,8 +3,9 @@ package it.unive.dais.po1.dandd.weapon.magic;
 import it.unive.dais.po1.dandd.protection.Protection;
 import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
 
-public class Magic extends OffensiveWeapon implements Protection {
+public class Magic implements OffensiveWeapon, Protection {
     private int defense;
+    private int damage;
     private int recovery;
 
     private int skip_next_rounds;
@@ -29,14 +30,20 @@ public class Magic extends OffensiveWeapon implements Protection {
             return this.defense;
     }
 
+    @Override
     public int getDamage() {
-        int damage = super.getDamage();
+        int damage = this.getInnerDamage();
         if(this.skip_next_rounds>0) {
             this.skip_next_rounds --;
             return 0;
         }
         this.skip_next_rounds = this.recovery;
         return damage;
+    }
+
+    @Override
+    public int getInnerDamage() {
+        return this.damage;
     }
 
 
