@@ -1,9 +1,9 @@
 package it.unive.dais.po1.dandd.protection;
 
-public abstract class Protection {
+public interface Protection {
 
-    protected int defense;
+    public int getDefense();
 
-    abstract public int getDefense();
+    public int getInfoDefence();
 
 }

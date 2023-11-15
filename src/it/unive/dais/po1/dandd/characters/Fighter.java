@@ -1,7 +1,9 @@
 package it.unive.dais.po1.dandd.characters;
 
+import it.unive.dais.po1.dandd.characters.magicians.Wizard;
 import it.unive.dais.po1.dandd.protection.Armor;
 import it.unive.dais.po1.dandd.weapon.fighter.Sword;
+import it.unive.dais.po1.dandd.weapon.magic.Magic;
 
 /**
  * This class is aimed at representing a fighter in D&D
@@ -62,4 +64,17 @@ public class Fighter extends Figure {
         return this.weapon.getDamage();
     }
 
+    @Override
+    public void defeated(Figure f) {
+        super.defeated(f);
+        if (f instanceof Fighter) {
+            Fighter f1 = (Fighter) f;
+            Sword s = f1.weapon;
+            Armor a = f1.armor;
+            if(s.getInfoDamage() > this.weapon.getInfoDamage())
+                this.weapon = s;
+            if(a.getInfoDefence() > this.armor.getInfoDefence())
+                this.armor = a;
+        }
+    }
 }

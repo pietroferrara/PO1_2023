@@ -1,8 +1,9 @@
 package it.unive.dais.po1.dandd.weapon.magic;
 
+import it.unive.dais.po1.dandd.protection.Protection;
 import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
 
-public class Magic extends OffensiveWeapon {
+public class Magic extends OffensiveWeapon implements Protection {
     private int defense;
     private int recovery;
 
@@ -36,5 +37,10 @@ public class Magic extends OffensiveWeapon {
         }
         this.skip_next_rounds = this.recovery;
         return damage;
+    }
+
+
+    public int getInfoDefence() {
+        return this.defense;
     }
 }

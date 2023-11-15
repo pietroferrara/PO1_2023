@@ -1,5 +1,6 @@
 package it.unive.dais.po1.dandd.characters.magicians;
 
+import it.unive.dais.po1.dandd.characters.Fighter;
 import it.unive.dais.po1.dandd.characters.Figure;
 import it.unive.dais.po1.dandd.weapon.magic.Magic;
 
@@ -57,4 +58,15 @@ final public class Wizard extends Figure {
         return this.magia;
     }
 
+    @Override
+    public void defeated(Figure f) {
+        super.defeated(f);
+        if (f instanceof Wizard) {
+            Wizard w = (Wizard) f;
+            Magic m = w.getMagia();
+            if(m.getInfoDamage()+m.getInfoDefence() >
+                this.magia.getInfoDefence()+this.magia.getInfoDamage())
+                this.magia = m;
+        }
+    }
 }

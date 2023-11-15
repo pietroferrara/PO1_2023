@@ -7,7 +7,9 @@ package it.unive.dais.po1.dandd.protection;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public class Armor extends Protection{
+public class Armor implements Protection{
+
+    private int defense;
 
     public Armor(int i) {
         if(i>=0)
@@ -16,6 +18,11 @@ public class Armor extends Protection{
     }
 
     public int getDefense() {
+        return this.defense;
+    }
+
+    @Override
+    public int getInfoDefence() {
         return this.defense;
     }
 

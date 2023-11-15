@@ -7,6 +7,10 @@ public abstract class OffensiveWeapon {
         return this.damage;
     }
 
+    final public int getInfoDamage() {
+        return this.damage;
+    }
+
 
 
 }

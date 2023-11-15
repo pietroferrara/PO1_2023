@@ -24,7 +24,7 @@ public abstract class Figure {
      * @invariant experience_points >= 0
      *          && experience_points >= pre(experience_points)
      */
-    int experience_points;
+    private int experience_points;
 
     /**
      * @invariant life_points >= 0
@@ -88,16 +88,10 @@ public abstract class Figure {
      * @param f The defeated fighter
      */
     //
-    final public void defeated(Figure f) {
+    public void defeated(Figure f) {
         //isAlive()
         //! f.isAlive()
         experience_points = experience_points + f.experience_points/10+10;
-        if(f instanceof Fighter) {
-        }
-        else if (f instanceof Wizard) {
-            Wizard w = (Wizard) f;
-            Magic m = w.getMagia();
-        }
     }
 
 
