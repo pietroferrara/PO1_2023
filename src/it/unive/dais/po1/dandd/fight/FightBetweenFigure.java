@@ -1,6 +1,8 @@
 package it.unive.dais.po1.dandd.fight;
 
+import it.unive.dais.po1.dandd.characters.Fighter;
 import it.unive.dais.po1.dandd.characters.Figure;
+import it.unive.dais.po1.dandd.characters.magicians.Wizard;
 
 import java.util.Random;
 
@@ -34,15 +36,42 @@ public class FightBetweenFigure {
         Random random = new Random();
         if(c1.isAlive() && c2.isAlive()) {
             if(random.nextDouble()>=0.5) {
-                c2.decreaseLifePoints(c1.getDamage());
+                if(c2 instanceof Wizard)
+                    this.damageFirstFigure((Wizard) c2, (Fighter) c1);
+                else this.damageFirstFigure(c2, c1);
             }
             else {
-                c1.decreaseLifePoints(c2.getDamage());
+                damageFirstFigure(c1, c2);
             }
         }
         return c1.isAlive() && c2.isAlive();
     }
 
+    private void damageFirstFigure(Figure f1, Figure f2) {
+        System.out.println("Damage between two figures");
+        f1.decreaseLifePoints(f2.getDamage());
+    }
+
+    private void damageFirstFigure(Fighter f1, Fighter f2) {
+        System.out.println("Damage between two fighters");
+        f1.decreaseLifePoints(f2.getDamage());
+    }
+
+    private void damageFirstFigure(Wizard f1, Wizard f2) {
+        System.out.println("Damage between two wizard");
+        f1.decreaseLifePoints(f2.getDamage());
+    }
+
+
+    private void damageFirstFigure(Figure f1, Fighter f2) {
+        System.out.println("Damage between a figure and a fighter");
+        f1.decreaseLifePoints(f2.getDamage());
+    }
+
+    private void damageFirstFigure(Wizard f1, Figure f2) {
+        System.out.println("Damage between a wizard and a figure");
+        f1.decreaseLifePoints(f2.getDamage());
+    }
     /**
      *
      * @requires true
