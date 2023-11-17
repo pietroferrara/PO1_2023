@@ -10,6 +10,12 @@ import it.unive.dais.po1.dandd.weapon.magic.Magic;
  * https://www.dndbeyond.com/classes/wizard
  */
 final public class Wizard extends Figure {
+    private static int numberOfWizards = 0;
+
+    public static int getNumberOfInstantiatedFigures() {
+        return Wizard.numberOfWizards;
+    }
+
 
     private Magic magia;
 
@@ -30,6 +36,7 @@ final public class Wizard extends Figure {
      */
     Wizard(int experience_points, int life_points, Magic m1) {
         super(experience_points, life_points);
+        Wizard.numberOfWizards++;
         this.magia = m1;
     }
 

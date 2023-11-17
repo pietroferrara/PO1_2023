@@ -17,6 +17,10 @@ public abstract class Figure {
     private static int number_of_instantiated_characters = 0;
 
 
+    public static int getNumberOfInstantiatedFigures() {
+        return Figure.number_of_instantiated_characters;
+    }
+
     /**
      * The identifier of the fighter
      */

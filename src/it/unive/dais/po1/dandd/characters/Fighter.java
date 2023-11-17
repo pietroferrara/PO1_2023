@@ -14,7 +14,11 @@ import it.unive.dais.po1.dandd.weapon.fighter.Sword;
  */
 public class Fighter extends Figure {
 
+    private static int numberOfFighters = 0;
 
+    public static int getNumberOfInstantiatedFigures() {
+        return Fighter.numberOfFighters;
+    }
 
     private Sword sword;
     private Armor armor;
@@ -37,6 +41,7 @@ public class Fighter extends Figure {
      */
     Fighter(int experience_points, int life_points, Sword w1, Armor a1) {
         super(experience_points, life_points);
+        numberOfFighters++;
         this.sword = w1;
         this.armor = a1;
     }

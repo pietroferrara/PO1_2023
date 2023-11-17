@@ -37,7 +37,7 @@ public class FightBetweenFigure {
         if(c1.isAlive() && c2.isAlive()) {
             if(random.nextDouble()>=0.5) {
                 if(c2 instanceof Wizard)
-                    this.damageFirstFigure((Wizard) c2, (Fighter) c1);
+                    this.damageFirstFigure((Wizard) c2, c1);
                 else this.damageFirstFigure(c2, c1);
             }
             else {

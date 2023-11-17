@@ -1,5 +1,6 @@
 package it.unive.dais.po1.dandd;
 
+import it.unive.dais.po1.dandd.characters.Figure;
 import it.unive.dais.po1.dandd.protection.Armor;
 import it.unive.dais.po1.dandd.characters.Fighter;
 import it.unive.dais.po1.dandd.characters.magicians.Wizard;
@@ -13,10 +14,10 @@ public class RunnerFigures {
 
         Sword w1 = new Sword(10);
         Armor a1 = new Armor(2);
-        Fighter f1 = new Fighter(w1,a1);
+        Figure f1 = new Fighter(w1,a1);
 
         Magic m1 = new Magic(3, 5, 3);
-        Wizard wiz1 = new Wizard(m1);
+        Figure wiz1 = new Wizard(m1);
 
         for(int j = 0; j < 3; j++) {
 
@@ -35,6 +36,10 @@ public class RunnerFigures {
                 }
             }
         }
+
+        System.out.println("Created "+Fighter.getNumberOfInstantiatedFigures()+" fighters");
+
+        System.out.println("Created "+Wizard.getNumberOfInstantiatedFigures()+" wizards");
     }
 
 }
