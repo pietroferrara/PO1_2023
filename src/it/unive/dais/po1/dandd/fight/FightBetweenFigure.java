@@ -32,7 +32,7 @@ public class FightBetweenFigure {
      *     (c1.life_points == pre(c1.life_points)-c2.weapon.damage AND
      *       c2.weapon.damage == pre(c2.weapon.damage)-1)
      */
-    private boolean singleFight() {
+    public boolean singleFight() {
         Random random = new Random();
         if(c1.isAlive() && c2.isAlive()) {
             if(random.nextDouble()>=0.5) {
