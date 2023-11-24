@@ -3,6 +3,8 @@ package it.unive.dais.po1.dandd.characters;
 import it.unive.dais.po1.dandd.defensive.DefensiveObject;
 import it.unive.dais.po1.dandd.offensive.OffensiveObject;
 
+import java.util.Objects;
+
 /**
  * This class is aimed at representing a fighter in D&D
  * Inspired by <a href="https://www.dndbeyond.com/classes/fighter">this webpage</a>
@@ -10,7 +12,19 @@ import it.unive.dais.po1.dandd.offensive.OffensiveObject;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public abstract class Figure {
+public abstract class Figure extends Object {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Figure figure = (Figure) o;
+        return id == figure.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     private static int number_of_instantiated_characters = 0;
 
