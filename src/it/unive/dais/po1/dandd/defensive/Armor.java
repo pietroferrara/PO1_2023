@@ -1,4 +1,4 @@
-package it.unive.dais.po1.dandd.protection;
+package it.unive.dais.po1.dandd.defensive;
 
 
 /**
@@ -7,7 +7,7 @@ package it.unive.dais.po1.dandd.protection;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public class Armor implements Protection{
+public class Armor implements DefensiveObject {
 
     private int defense;
 

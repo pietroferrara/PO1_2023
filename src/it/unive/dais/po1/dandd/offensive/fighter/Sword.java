@@ -1,6 +1,6 @@
-package it.unive.dais.po1.dandd.weapon.fighter;
+package it.unive.dais.po1.dandd.offensive.fighter;
 
-import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
+import it.unive.dais.po1.dandd.offensive.OffensiveObject;
 
 /**
  * This class is aimed at representing a weapon in D&D
@@ -8,7 +8,7 @@ import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
  * @since 1.0
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
-public class Sword implements OffensiveWeapon {
+public class Sword implements OffensiveObject {
 
     private int damage;
 

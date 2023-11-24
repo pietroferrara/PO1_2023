@@ -2,10 +2,10 @@ package it.unive.dais.po1.generics;
 
 import it.unive.dais.po1.dandd.characters.Fighter;
 import it.unive.dais.po1.dandd.characters.Figure;
-import it.unive.dais.po1.dandd.characters.magicians.Wizard;
-import it.unive.dais.po1.dandd.protection.Armor;
-import it.unive.dais.po1.dandd.weapon.fighter.Sword;
-import it.unive.dais.po1.dandd.weapon.magic.Magic;
+import it.unive.dais.po1.dandd.characters.Wizard;
+import it.unive.dais.po1.dandd.defensive.Armor;
+import it.unive.dais.po1.dandd.offensive.fighter.Sword;
+import it.unive.dais.po1.dandd.offensive.magic.Magic;
 
 public class UserOfList {
 
@@ -85,7 +85,7 @@ public class UserOfList {
         return f.fight();
     }
 
-    public static void foo2() {
+    public static void foo10() {
         List<Wizard> f = new List<Wizard>();
         Magic m = null;
         f.add(new Wizard(m));

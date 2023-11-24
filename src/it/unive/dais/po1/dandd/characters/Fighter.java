@@ -1,9 +1,11 @@
 package it.unive.dais.po1.dandd.characters;
 
-import it.unive.dais.po1.dandd.protection.Armor;
-import it.unive.dais.po1.dandd.protection.Protection;
-import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
-import it.unive.dais.po1.dandd.weapon.fighter.Sword;
+import it.unive.dais.po1.dandd.defensive.Armor;
+import it.unive.dais.po1.dandd.defensive.DefensiveBag;
+import it.unive.dais.po1.dandd.defensive.DefensiveObject;
+import it.unive.dais.po1.dandd.offensive.OffensiveBag;
+import it.unive.dais.po1.dandd.offensive.OffensiveObject;
+import it.unive.dais.po1.dandd.offensive.fighter.Sword;
 
 /**
  * This class is aimed at representing a fighter in D&D
@@ -20,8 +22,8 @@ public class Fighter extends Figure {
         return Fighter.numberOfFighters;
     }
 
-    private Sword sword;
-    private Armor armor;
+    private OffensiveBag<Sword> swords;
+    private DefensiveBag<Armor> armors;
 
     /**
      * Initializes a fighter without any experience and with full life points
@@ -42,34 +44,37 @@ public class Fighter extends Figure {
     Fighter(int experience_points, int life_points, Sword w1, Armor a1) {
         super(experience_points, life_points);
         numberOfFighters++;
-        this.sword = w1;
-        this.armor = a1;
+        this.swords = new OffensiveBag<>();
+        this.swords.add(w1);
+        this.armors = new DefensiveBag<>();
+        this.armors.add(a1);
     }
 
     @Override
     public int getDamage() {
-        return this.sword.getDamage();
+        return this.getCurrentOffensiveObject().getDamage();
     }
 
     @Override
-    public void setOffensiveWeapon(OffensiveWeapon offensiveweap) {
-        if(offensiveweap instanceof Sword)
-            this.sword = (Sword) offensiveweap;
+    public void collectOffensiveObject(OffensiveObject offensiveweap) {
+        if(offensiveweap instanceof Sword) {
+            this.swords.add((Sword) offensiveweap);
+        }
     }
 
     @Override
-    public void setProtection(Protection defeatedprot) {
+    public void collectDefensiveObject(DefensiveObject defeatedprot) {
         if(defeatedprot instanceof Armor)
-            this.armor = (Armor) defeatedprot;
+            this.armors.add((Armor) defeatedprot);
     }
 
     @Override
-    public OffensiveWeapon getOffensiveWeapon() {
-        return this.sword;
+    public OffensiveObject getCurrentOffensiveObject() {
+        return this.swords.getBestOffensiveObject();
     }
 
     @Override
-    public Protection getProtection() {
-        return this.armor;
+    public DefensiveObject getCurrentDefensiveObject() {
+        return this.armors.getBestDefensiveObject();
     }
 }

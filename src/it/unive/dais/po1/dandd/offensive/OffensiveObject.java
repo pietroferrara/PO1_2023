@@ -1,6 +1,6 @@
-package it.unive.dais.po1.dandd.weapon;
+package it.unive.dais.po1.dandd.offensive;
 
-public interface OffensiveWeapon {
+public interface OffensiveObject {
     default public int getDamage() {
         return this.getInnerDamage();
     }

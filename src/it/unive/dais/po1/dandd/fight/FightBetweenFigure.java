@@ -2,7 +2,7 @@ package it.unive.dais.po1.dandd.fight;
 
 import it.unive.dais.po1.dandd.characters.Fighter;
 import it.unive.dais.po1.dandd.characters.Figure;
-import it.unive.dais.po1.dandd.characters.magicians.Wizard;
+import it.unive.dais.po1.dandd.characters.Wizard;
 
 import java.util.Random;
 

@@ -1,9 +1,9 @@
-package it.unive.dais.po1.dandd.weapon.magic;
+package it.unive.dais.po1.dandd.offensive.magic;
 
-import it.unive.dais.po1.dandd.protection.Protection;
-import it.unive.dais.po1.dandd.weapon.OffensiveWeapon;
+import it.unive.dais.po1.dandd.defensive.DefensiveObject;
+import it.unive.dais.po1.dandd.offensive.OffensiveObject;
 
-public class Magic implements OffensiveWeapon, Protection {
+public class Magic implements OffensiveObject, DefensiveObject {
     private int defense;
     private int damage;
     private int recovery;
