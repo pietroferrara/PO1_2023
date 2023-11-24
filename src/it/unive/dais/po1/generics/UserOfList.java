@@ -93,7 +93,8 @@ public class UserOfList {
         //List<Figure> listFigure = f;
         List<? extends Figure> listBoh = f;
         Figure s1 = listBoh.get(0);
-        listBoh.add(new Fighter(null, null));
+        //This does not work since the question mark might be (and indeed is) a Wizard!
+        //listBoh.add(new Fighter(null, null));
 
     }
 
