@@ -24,4 +24,9 @@ public class List<T> {
         elements = Arrays.copyOf(elements, elements.length+1);
         elements[elements.length-1]=el;
     }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(elements);
+    }
 }

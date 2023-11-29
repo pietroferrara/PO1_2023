@@ -22,6 +22,20 @@ public class FightBetweenFigure {
         this.c2 = c2;
     }
 
+    public FightBetweenFigure(Object[] arr) {
+        for(int i=0; i<arr.length; i++) {
+            if (arr[i] instanceof Figure) {
+                if (this.c1 == null)
+                    this.c1 = (Figure) arr[i];
+                else {
+                    this.c2 = (Figure) arr[i];
+                    return;
+                }
+            }
+        }
+        return;
+    }
+
     /**
      *
      * @requires true

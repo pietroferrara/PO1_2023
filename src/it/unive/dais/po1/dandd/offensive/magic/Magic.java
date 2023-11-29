@@ -31,6 +31,16 @@ public class Magic implements OffensiveObject, DefensiveObject {
     }
 
     @Override
+    public String toString() {
+        return "Magic{" +
+                "defense=" + defense +
+                ", damage=" + damage +
+                ", recovery=" + recovery +
+                ", skip_next_rounds=" + skip_next_rounds +
+                '}';
+    }
+
+    @Override
     public int getDamage() {
         int damage = this.getInnerDamage();
         if(this.skip_next_rounds>0) {

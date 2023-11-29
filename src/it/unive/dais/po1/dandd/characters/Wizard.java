@@ -72,4 +72,14 @@ final public class Wizard extends Figure {
     public DefensiveObject getCurrentDefensiveObject() {
         return this.defensiveMagic.getBestDefensiveObject();
     }
+
+    @Override
+    public Wizard clone() throws CloneNotSupportedException {
+        return new Wizard(this.experience_points, this.life_points, this.defensiveMagic.getBestDefensiveObject());
+    }
+
+    @Override
+    public String toString() {
+        return "Wizard " +" magic=" + offensiveMagic + ", "+super.toString();
+    }
 }

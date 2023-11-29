@@ -22,6 +22,13 @@ public class Armor implements DefensiveObject {
     }
 
     @Override
+    public String toString() {
+        return "Armor{" +
+                "defense=" + defense +
+                '}';
+    }
+
+    @Override
     public int getInfoDefence() {
         return this.defense;
     }

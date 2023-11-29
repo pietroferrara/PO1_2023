@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author Pietro Ferrara pietro.ferrara@unive.it
  */
 public abstract class Figure extends Object {
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -24,6 +25,11 @@ public abstract class Figure extends Object {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Figure " + id + ",exp=" + experience_points +",life=" + life_points;
     }
 
     private static int number_of_instantiated_characters = 0;
@@ -42,12 +48,12 @@ public abstract class Figure extends Object {
      * @invariant experience_points >= 0
      *          && experience_points >= pre(experience_points)
      */
-    private int experience_points;
+    protected int experience_points;
 
     /**
      * @invariant life_points >= 0
      */
-    private int life_points;
+    protected int life_points;
 
 
 

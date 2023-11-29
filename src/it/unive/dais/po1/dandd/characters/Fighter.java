@@ -63,6 +63,13 @@ public class Fighter extends Figure {
     }
 
     @Override
+    public String toString() {
+        return "Fighter " +
+                "swords=" + swords +
+                ", armors=" + armors +", "+super.toString();
+    }
+
+    @Override
     public void collectDefensiveObject(DefensiveObject defeatedprot) {
         if(defeatedprot instanceof Armor)
             this.armors.add((Armor) defeatedprot);

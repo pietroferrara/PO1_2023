@@ -38,6 +38,13 @@ public class Sword implements OffensiveObject {
     }
 
     @Override
+    public String toString() {
+        return "Sword{" +
+                "damage=" + damage +
+                '}';
+    }
+
+    @Override
     public int getInnerDamage() {
         return this.damage;
     }
