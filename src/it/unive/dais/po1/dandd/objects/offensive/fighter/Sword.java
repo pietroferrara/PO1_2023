@@ -1,6 +1,7 @@
-package it.unive.dais.po1.dandd.offensive.fighter;
+package it.unive.dais.po1.dandd.objects.offensive.fighter;
 
-import it.unive.dais.po1.dandd.offensive.OffensiveObject;
+import it.unive.dais.po1.dandd.objects.DaDObject;
+import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
 
 /**
  * This class is aimed at representing a weapon in D&D
@@ -48,4 +49,9 @@ public class Sword implements OffensiveObject {
     public int getInnerDamage() {
         return this.damage;
     }
+
+
+    public int getStrength() { return this.getInnerDamage();}
+
+
 }

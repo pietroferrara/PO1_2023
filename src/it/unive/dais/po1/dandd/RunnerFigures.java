@@ -1,12 +1,12 @@
 package it.unive.dais.po1.dandd;
 
 import it.unive.dais.po1.dandd.characters.Figure;
-import it.unive.dais.po1.dandd.defensive.Armor;
+import it.unive.dais.po1.dandd.objects.defensive.Armor;
 import it.unive.dais.po1.dandd.characters.Fighter;
 import it.unive.dais.po1.dandd.characters.Wizard;
 import it.unive.dais.po1.dandd.fight.FightBetweenFigure;
-import it.unive.dais.po1.dandd.offensive.fighter.Sword;
-import it.unive.dais.po1.dandd.offensive.magic.Magic;
+import it.unive.dais.po1.dandd.objects.offensive.fighter.Sword;
+import it.unive.dais.po1.dandd.objects.offensive.magic.Magic;
 
 import java.util.Random;
 

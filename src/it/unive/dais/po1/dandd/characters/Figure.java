@@ -1,7 +1,7 @@
 package it.unive.dais.po1.dandd.characters;
 
-import it.unive.dais.po1.dandd.defensive.DefensiveObject;
-import it.unive.dais.po1.dandd.offensive.OffensiveObject;
+import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
+import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
 
 import java.util.Objects;
 

@@ -1,10 +1,10 @@
 package it.unive.dais.po1.dandd.characters;
 
-import it.unive.dais.po1.dandd.defensive.DefensiveBag;
-import it.unive.dais.po1.dandd.defensive.DefensiveObject;
-import it.unive.dais.po1.dandd.offensive.OffensiveBag;
-import it.unive.dais.po1.dandd.offensive.OffensiveObject;
-import it.unive.dais.po1.dandd.offensive.magic.Magic;
+import it.unive.dais.po1.dandd.objects.defensive.DefensiveBag;
+import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
+import it.unive.dais.po1.dandd.objects.offensive.OffensiveBag;
+import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
+import it.unive.dais.po1.dandd.objects.offensive.magic.Magic;
 
 /**
  * https://www.dndbeyond.com/classes/wizard
@@ -53,14 +53,17 @@ final public class Wizard extends Figure {
     @Override
     public void collectOffensiveObject(OffensiveObject offensiveweap) {
         if(offensiveweap instanceof Magic) {
+            this.defensiveMagic.add((Magic) offensiveweap);
             this.offensiveMagic.add((Magic) offensiveweap);
         }
     }
 
     @Override
     public void collectDefensiveObject(DefensiveObject defeatedprot) {
-        if(defeatedprot instanceof Magic)
+        if(defeatedprot instanceof Magic) {
             this.defensiveMagic.add((Magic) defeatedprot);
+            this.offensiveMagic.add((Magic) defeatedprot);
+        }
     }
 
     @Override

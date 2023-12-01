@@ -1,7 +1,7 @@
-package it.unive.dais.po1.dandd.offensive.magic;
+package it.unive.dais.po1.dandd.objects.offensive.magic;
 
-import it.unive.dais.po1.dandd.defensive.DefensiveObject;
-import it.unive.dais.po1.dandd.offensive.OffensiveObject;
+import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
+import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
 
 public class Magic implements OffensiveObject, DefensiveObject {
     private int defense;
@@ -57,7 +57,8 @@ public class Magic implements OffensiveObject, DefensiveObject {
     }
 
 
-    public int getInfoDefence() {
+    public int getInfoDefense() {
         return this.defense;
     }
+    public int getStrength() { return this.getInnerDamage()+this.getInfoDefense();}
 }

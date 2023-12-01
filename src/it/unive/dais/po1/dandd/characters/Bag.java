@@ -1,6 +1,6 @@
 package it.unive.dais.po1.dandd.characters;
 
-import it.unive.dais.po1.generics.List;
+import java.util.TreeSet;
 
-public abstract class Bag<T> extends List<T> {
+public abstract class Bag<T> extends TreeSet<T> {
 }

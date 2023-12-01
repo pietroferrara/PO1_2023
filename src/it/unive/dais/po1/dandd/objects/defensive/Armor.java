@@ -1,5 +1,7 @@
-package it.unive.dais.po1.dandd.defensive;
+package it.unive.dais.po1.dandd.objects.defensive;
 
+
+import it.unive.dais.po1.dandd.objects.DaDObject;
 
 /**
  * This class is aimed at representing an armor in D&D
@@ -29,9 +31,9 @@ public class Armor implements DefensiveObject {
     }
 
     @Override
-    public int getInfoDefence() {
+    public int getInfoDefense() {
         return this.defense;
     }
 
-
+    public int getStrength() { return this.getInfoDefense();}
 }

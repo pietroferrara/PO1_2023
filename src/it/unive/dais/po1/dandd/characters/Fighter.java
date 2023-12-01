@@ -1,11 +1,11 @@
 package it.unive.dais.po1.dandd.characters;
 
-import it.unive.dais.po1.dandd.defensive.Armor;
-import it.unive.dais.po1.dandd.defensive.DefensiveBag;
-import it.unive.dais.po1.dandd.defensive.DefensiveObject;
-import it.unive.dais.po1.dandd.offensive.OffensiveBag;
-import it.unive.dais.po1.dandd.offensive.OffensiveObject;
-import it.unive.dais.po1.dandd.offensive.fighter.Sword;
+import it.unive.dais.po1.dandd.objects.defensive.Armor;
+import it.unive.dais.po1.dandd.objects.defensive.DefensiveBag;
+import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
+import it.unive.dais.po1.dandd.objects.offensive.OffensiveBag;
+import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
+import it.unive.dais.po1.dandd.objects.offensive.fighter.Sword;
 
 /**
  * This class is aimed at representing a fighter in D&D
