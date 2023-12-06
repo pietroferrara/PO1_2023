@@ -22,17 +22,13 @@ public class RunnerFigures {
         Magic m1 = new Magic(3, 5, 3);
         Figure figure2 = new Wizard(m1);
 
-        Object[] arr = new Object[3];
-        arr[0] = figure1;
-        arr[1] = "pippo";
-        arr[2] = figure2;
 
-        w1.toString();
+
 
         for(int j = 0; j < 3; j++) {
 
             for(int i = 0; i < 150; i++) {
-                int winner = new FightBetweenFigure(arr).fight();
+                int winner = new FightBetweenFigure(figure1, figure2).fight();
                 switch(winner) {
                     case 1:
                         System.out.println("The fighter " + figure1 + " won!");
