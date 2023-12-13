@@ -1,4 +1,4 @@
-package it.unive.dais.po1.dandd.characters;
+package it.unive.dais.po1.dandd.figures;
 
 import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
 import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
@@ -98,12 +98,13 @@ public abstract class Figure extends Object {
      * @param damaged_life_points the amount of life points to be subtracted.
      */
     //
-    public void decreaseLifePoints(int damaged_life_points) {
+    public void decreaseLifePoints(int damaged_life_points) throws FigureAlreadyDeadException {
         if(damaged_life_points>0) {
             if (damaged_life_points <= life_points)
                 life_points = life_points - damaged_life_points;
             else life_points = 0;
         }
+        else throw new FigureAlreadyDeadException("The figure is already dead and it cannot loose more life points");
     }
 
     /**

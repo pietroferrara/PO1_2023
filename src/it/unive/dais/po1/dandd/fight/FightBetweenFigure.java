@@ -1,8 +1,10 @@
 package it.unive.dais.po1.dandd.fight;
 
-import it.unive.dais.po1.dandd.characters.Fighter;
-import it.unive.dais.po1.dandd.characters.Figure;
-import it.unive.dais.po1.dandd.characters.Wizard;
+import it.unive.dais.po1.dandd.UnexpectedBehaviorError;
+import it.unive.dais.po1.dandd.figures.Fighter;
+import it.unive.dais.po1.dandd.figures.Figure;
+import it.unive.dais.po1.dandd.figures.FigureAlreadyDeadException;
+import it.unive.dais.po1.dandd.figures.Wizard;
 
 import java.util.Random;
 
@@ -17,12 +19,21 @@ import java.util.Random;
 public class FightBetweenFigure {
     private Figure c1, c2;
 
-    public FightBetweenFigure(Figure c1, Figure c2) {
+    /**
+     *
+     * @param c1 The first figure involved in the fight
+     * @param c2 The second figure involved in the fight
+     * @throws MissingFigureException If one of the two figures is null
+     */
+    public FightBetweenFigure(Figure c1, Figure c2) throws MissingFigureException {
+        assert c1!=null && c2!=null : "null values not allowed here";
+        if(c1==null || c2==null)
+            throw new MissingFigureException("Building a fight between two figures, but passing only one or no figure at all");
         this.c1 = c1;
         this.c2 = c2;
     }
 
-    public FightBetweenFigure(Object[] arr) {
+    public FightBetweenFigure(Object[] arr) throws MissingFigureException {
         for(int i=0; i<arr.length; i++) {
             if (arr[i] instanceof Figure) {
                 if (this.c1 == null)
@@ -33,7 +44,7 @@ public class FightBetweenFigure {
                 }
             }
         }
-        return;
+        throw new MissingFigureException("Building a fight between two figures, but passing only one or no figure at all");
     }
 
     /**
@@ -49,40 +60,44 @@ public class FightBetweenFigure {
     public boolean singleFight() {
         Random random = new Random();
         if(c1.isAlive() && c2.isAlive()) {
-            if(random.nextDouble()>=0.5) {
-                if(c2 instanceof Wizard)
-                    this.damageFirstFigure((Wizard) c2, c1);
-                else this.damageFirstFigure(c2, c1);
+            try {
+                if (random.nextDouble() >= 0.5) {
+                    if (c2 instanceof Wizard)
+                        this.damageFirstFigure((Wizard) c2, c1);
+                    else this.damageFirstFigure(c2, c1);
+                } else {
+                    damageFirstFigure(c1, c2);
+                }
             }
-            else {
-                damageFirstFigure(c1, c2);
+            catch(FigureAlreadyDeadException e) {
+                throw new UnexpectedBehaviorError("The two figures were alive, but then they had no life point", e);
             }
         }
         return c1.isAlive() && c2.isAlive();
     }
 
-    private void damageFirstFigure(Figure f1, Figure f2) {
+    private void damageFirstFigure(Figure f1, Figure f2) throws FigureAlreadyDeadException {
         System.out.println("Damage between two figures");
         f1.decreaseLifePoints(f2.getDamage());
     }
 
-    private void damageFirstFigure(Fighter f1, Fighter f2) {
+    private void damageFirstFigure(Fighter f1, Fighter f2) throws FigureAlreadyDeadException {
         System.out.println("Damage between two fighters");
         f1.decreaseLifePoints(f2.getDamage());
     }
 
-    private void damageFirstFigure(Wizard f1, Wizard f2) {
+    private void damageFirstFigure(Wizard f1, Wizard f2) throws FigureAlreadyDeadException {
         System.out.println("Damage between two wizard");
         f1.decreaseLifePoints(f2.getDamage());
     }
 
 
-    private void damageFirstFigure(Figure f1, Fighter f2) {
+    private void damageFirstFigure(Figure f1, Fighter f2) throws FigureAlreadyDeadException {
         System.out.println("Damage between a figure and a fighter");
         f1.decreaseLifePoints(f2.getDamage());
     }
 
-    private void damageFirstFigure(Wizard f1, Figure f2) {
+    private void damageFirstFigure(Wizard f1, Figure f2) throws FigureAlreadyDeadException {
         System.out.println("Damage between a wizard and a figure");
         f1.decreaseLifePoints(f2.getDamage());
     }

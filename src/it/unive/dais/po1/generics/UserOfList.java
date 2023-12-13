@@ -1,8 +1,9 @@
 package it.unive.dais.po1.generics;
 
-import it.unive.dais.po1.dandd.characters.Fighter;
-import it.unive.dais.po1.dandd.characters.Figure;
-import it.unive.dais.po1.dandd.characters.Wizard;
+import it.unive.dais.po1.dandd.figures.Fighter;
+import it.unive.dais.po1.dandd.figures.Figure;
+import it.unive.dais.po1.dandd.figures.Wizard;
+import it.unive.dais.po1.dandd.fight.MissingFigureException;
 import it.unive.dais.po1.dandd.objects.defensive.Armor;
 import it.unive.dais.po1.dandd.objects.offensive.fighter.Sword;
 import it.unive.dais.po1.dandd.objects.offensive.magic.Magic;
@@ -64,7 +65,7 @@ public class UserOfList {
         Magic m = null;
         var w  = new Wizard(m);
     }
-    public static void foo8() {
+    public static void foo8() throws MissingFigureException {
         ListFigure<Wizard> f = new ListFigure<>();
         Magic m = null;
         var w  = new Wizard(m);
@@ -75,7 +76,7 @@ public class UserOfList {
         Wizard winner = f.fight();
     }
 
-    public static Figure foo9() {
+    public static Figure foo9() throws MissingFigureException {
         ListFigure<Figure> f = new ListFigure<>();
         Sword s = null;
         Armor a = null;

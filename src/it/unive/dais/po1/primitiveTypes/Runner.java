@@ -1,9 +1,5 @@
 package it.unive.dais.po1.primitiveTypes;
 
-import it.unive.dais.po1.dandd.characters.Figure;
-
-import java.util.ArrayList;
-
 public class Runner {
 
     public static void main(String[] args) {

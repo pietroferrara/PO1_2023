@@ -1,6 +1,6 @@
 package it.unive.dais.po1.dandd.objects.offensive;
 
-import it.unive.dais.po1.dandd.characters.Bag;
+import it.unive.dais.po1.dandd.figures.Bag;
 
 import java.util.Iterator;
 

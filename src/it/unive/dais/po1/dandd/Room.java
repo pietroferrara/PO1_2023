@@ -1,7 +1,8 @@
 package it.unive.dais.po1.dandd;
 
-import it.unive.dais.po1.dandd.characters.Figure;
+import it.unive.dais.po1.dandd.figures.Figure;
 import it.unive.dais.po1.dandd.fight.FightBetweenFigure;
+import it.unive.dais.po1.dandd.fight.MissingFigureException;
 import it.unive.dais.po1.dandd.objects.DaDObject;
 import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
 import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
@@ -18,10 +19,19 @@ public class Room {
     }
 
     public boolean enter(Figure f) {
+        if(f==null)
+            return false;
         if(guardian!=null) {
-            int result = new FightBetweenFigure(f, guardian).fight();
-            if(result!=1)
-                return false;
+            try {
+                int result = new FightBetweenFigure(f, guardian).fight();
+                if (result != 1)
+                    return false;
+            }
+            catch(MissingFigureException e) {
+                throw new UnexpectedBehaviorError(
+                        "I'm always passing two figures to the fight, but it still complains.",
+                        e);
+            }
         }
         for(DaDObject obj : objs) {
             if(obj instanceof DefensiveObject)

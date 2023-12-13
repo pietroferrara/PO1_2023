@@ -1,6 +1,6 @@
 package it.unive.dais.po1.dandd.objects.defensive;
 
-import it.unive.dais.po1.dandd.characters.Bag;
+import it.unive.dais.po1.dandd.figures.Bag;
 
 public class DefensiveBag<T extends DefensiveObject> extends Bag<T> {
 

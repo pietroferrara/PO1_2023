@@ -1,4 +1,4 @@
-package it.unive.dais.po1.dandd.characters;
+package it.unive.dais.po1.dandd.figures;
 
 import java.util.TreeSet;
 

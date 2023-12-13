@@ -1,8 +1,8 @@
 package it.unive.dais.po1.dandd;
 
-import it.unive.dais.po1.dandd.characters.Fighter;
-import it.unive.dais.po1.dandd.characters.Figure;
-import it.unive.dais.po1.dandd.characters.Wizard;
+import it.unive.dais.po1.dandd.figures.Fighter;
+import it.unive.dais.po1.dandd.figures.Figure;
+import it.unive.dais.po1.dandd.figures.Wizard;
 import it.unive.dais.po1.dandd.objects.DaDObject;
 import it.unive.dais.po1.dandd.objects.defensive.Armor;
 import it.unive.dais.po1.dandd.objects.offensive.fighter.Sword;

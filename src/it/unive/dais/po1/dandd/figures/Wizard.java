@@ -1,4 +1,4 @@
-package it.unive.dais.po1.dandd.characters;
+package it.unive.dais.po1.dandd.figures;
 
 import it.unive.dais.po1.dandd.objects.defensive.DefensiveBag;
 import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;

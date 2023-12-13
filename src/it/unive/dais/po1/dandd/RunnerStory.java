@@ -1,6 +1,6 @@
 package it.unive.dais.po1.dandd;
 
-import it.unive.dais.po1.dandd.characters.Figure;
+import it.unive.dais.po1.dandd.figures.Figure;
 
 public class RunnerStory
 {

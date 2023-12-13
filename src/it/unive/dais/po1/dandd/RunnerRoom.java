@@ -1,6 +1,6 @@
 package it.unive.dais.po1.dandd;
 
-import it.unive.dais.po1.dandd.characters.Figure;
+import it.unive.dais.po1.dandd.figures.Figure;
 import it.unive.dais.po1.dandd.objects.DaDObject;
 
 import java.util.Collection;
