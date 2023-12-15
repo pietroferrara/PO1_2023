@@ -1,5 +1,6 @@
 package it.unive.dais.po1.dandd.objects.offensive.magic;
 
+import it.unive.dais.po1.dandd.figures.Restore;
 import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
 import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
 
@@ -44,11 +45,17 @@ public class Magic implements OffensiveObject, DefensiveObject {
     public int getDamage() {
         int damage = this.getInnerDamage();
         if(this.skip_next_rounds>0) {
-            this.skip_next_rounds --;
+            //this.skip_next_rounds --;
             return 0;
         }
         this.skip_next_rounds = this.recovery;
         return damage;
+    }
+
+    @Restore(amount=1)
+    public void restoreMagic() {
+        if(this.skip_next_rounds>0)
+            this.skip_next_rounds --;
     }
 
     @Override

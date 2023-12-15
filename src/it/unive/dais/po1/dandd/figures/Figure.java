@@ -27,6 +27,9 @@ public abstract class Figure extends Object {
         return Objects.hash(id);
     }
 
+
+    public int hashCode(int i) {return 0;}
+
     @Override
     public String toString() {
         return "Figure " + id + ",exp=" + experience_points +",life=" + life_points;
@@ -138,6 +141,12 @@ public abstract class Figure extends Object {
      */
     public int getId() {
         return this.id;
+    }
+
+    @Deprecated(since="2.0", forRemoval = true)
+    public void setLifePoints(int life_points) {
+        if(life_points>=0)
+            this.life_points = life_points;
     }
 
 }

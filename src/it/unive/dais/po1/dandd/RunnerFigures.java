@@ -16,11 +16,13 @@ public class RunnerFigures {
 
     public static void main(String[] args) throws MissingFigureException {
 
-        new FightBetweenFigure(null, null);
 
         Sword w1 = new Sword(10);
         Armor a1 = new Armor(2);
         Figure figure1 = new Fighter(w1,a1);
+
+        figure1.setLifePoints(100);
+
 
         Magic m1 = new Magic(3, 5, 3);
         Figure figure2 = new Wizard(m1);

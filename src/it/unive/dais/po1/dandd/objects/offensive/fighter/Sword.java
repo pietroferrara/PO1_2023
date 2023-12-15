@@ -1,5 +1,6 @@
 package it.unive.dais.po1.dandd.objects.offensive.fighter;
 
+import it.unive.dais.po1.dandd.figures.Restore;
 import it.unive.dais.po1.dandd.objects.DaDObject;
 import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
 
@@ -13,6 +14,8 @@ public class Sword implements OffensiveObject {
 
     private int damage;
 
+    private final int maximal_damage;
+
 
     /**
      * Creates a weapon with the given damage
@@ -23,6 +26,7 @@ public class Sword implements OffensiveObject {
         if(i>0)
             this.damage = i;
         else this.damage = 1;
+        this.maximal_damage = this.damage;
     }
 
 
@@ -54,4 +58,10 @@ public class Sword implements OffensiveObject {
     public int getStrength() { return this.getInnerDamage();}
 
 
+    @Restore(percentage = -1, amount = -1)
+    public void restore(int i) {
+        this.damage = Math.min(
+                this.maximal_damage,
+                this.damage+i);
+    }
 }

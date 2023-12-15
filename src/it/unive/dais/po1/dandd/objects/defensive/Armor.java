@@ -1,6 +1,7 @@
 package it.unive.dais.po1.dandd.objects.defensive;
 
 
+import it.unive.dais.po1.dandd.figures.Restore;
 import it.unive.dais.po1.dandd.objects.DaDObject;
 
 /**
@@ -13,10 +14,13 @@ public class Armor implements DefensiveObject {
 
     private int defense;
 
+    private final int maximal_defense;
+
     public Armor(int i) {
         if(i>=0)
             this.defense = i;
         else this.defense = 0;
+        this.maximal_defense = this.defense;
     }
 
     public int getDefense() {
@@ -36,4 +40,11 @@ public class Armor implements DefensiveObject {
     }
 
     public int getStrength() { return this.getInfoDefense();}
+
+    @Restore(percentage = -1, amount = -1)
+    public void restore(int i) {
+        this.defense = Math.min(
+                this.maximal_defense,
+                this.defense+i);
+    }
 }

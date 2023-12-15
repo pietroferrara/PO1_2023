@@ -69,6 +69,20 @@ public class Fighter extends Figure {
                 ", armors=" + armors +", "+super.toString();
     }
 
+    @Restore(amount = 1)
+    public void restoreOffensiveWeapons() {
+        for(Sword s : swords)
+            s.restore(1);
+    }
+
+    @Restore(amount = 1)
+    @SuppressWarnings({"unused"})
+    public void restoreDefensiveWeapons() {
+        for(Armor a : armors)
+            a.restore(1);
+    }
+
+
     @Override
     public void collectDefensiveObject(DefensiveObject defeatedprot) {
         if(defeatedprot instanceof Armor)
