@@ -8,13 +8,15 @@ import it.unive.dais.po1.dandd.figures.Wizard;
 import it.unive.dais.po1.dandd.fight.FightBetweenFigure;
 import it.unive.dais.po1.dandd.objects.offensive.fighter.Sword;
 import it.unive.dais.po1.dandd.objects.offensive.magic.Magic;
+import jakarta.xml.bind.JAXBException;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class RunnerFigures {
     int i;
 
-    public static void main(String[] args) throws MissingFigureException {
+    public static void main(String[] args) throws MissingFigureException, JAXBException, IOException {
 
 
         Sword w1 = new Sword(10);
@@ -26,6 +28,9 @@ public class RunnerFigures {
 
         Magic m1 = new Magic(3, 5, 3);
         Figure figure2 = new Wizard(m1);
+
+        Magic.marshal(m1);
+        Magic m2 = Magic.unmarshall();
 
 
 

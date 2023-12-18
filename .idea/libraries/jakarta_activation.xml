@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jakarta.activation">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jakarta.activation.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jakarta.xml.bind-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jaxb-impl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

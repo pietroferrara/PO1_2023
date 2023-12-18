@@ -3,15 +3,53 @@ package it.unive.dais.po1.dandd.objects.offensive.magic;
 import it.unive.dais.po1.dandd.figures.Restore;
 import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
 import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlType;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+@XmlRootElement
+@XmlType
 public class Magic implements OffensiveObject, DefensiveObject {
+    @XmlElement
     private int defense;
+    @XmlAttribute
     private int damage;
+    @XmlAttribute
     private int recovery;
-
+    @XmlAttribute
     private int skip_next_rounds;
 
+    public static void marshal(Magic magic)
+            throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(Magic.class);
+        Marshaller mar= context.createMarshaller();
+        mar.marshal(magic, new File("./magic.xml"));
+    }
+    public static Magic unmarshall()
+            throws JAXBException, IOException {
+        JAXBContext context = JAXBContext.newInstance(Magic.class);
+        return (Magic) context.createUnmarshaller()
+                .unmarshal(new FileReader("./magic.xml"));
+    }
+
+
+    /**
+     * This exists only because of JAXB. Do not utilize it!
+     */
+    public Magic() {
+
+    }
+
     public Magic(int defense, int damage, int recovery) {
+        assert damage >= 0;
         if(damage>=0)
             this.damage = damage;
         else this.damage = 1;
@@ -53,7 +91,7 @@ public class Magic implements OffensiveObject, DefensiveObject {
     }
 
     @Restore(amount=1)
-    public void restoreMagic() {
+    private void restoreMagic() {
         if(this.skip_next_rounds>0)
             this.skip_next_rounds --;
     }
