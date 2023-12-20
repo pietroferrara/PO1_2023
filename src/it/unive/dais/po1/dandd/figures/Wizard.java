@@ -17,8 +17,8 @@ final public class Wizard extends Figure {
     }
 
 
-    private OffensiveBag<Magic> offensiveMagic;
-    private DefensiveBag<Magic> defensiveMagic;
+    private OffensiveBag<OffensiveObject> offensiveMagic;
+    private DefensiveBag<DefensiveObject> defensiveMagic;
 
 
     /**
@@ -37,9 +37,9 @@ final public class Wizard extends Figure {
     Wizard(int experience_points, int life_points, Magic m1) {
         super(experience_points, life_points);
         Wizard.numberOfWizards++;
-        this.defensiveMagic = new DefensiveBag<Magic>();
+        this.defensiveMagic = new DefensiveBag<>();
         this.defensiveMagic.add(m1);
-        this.offensiveMagic = new OffensiveBag<Magic>();
+        this.offensiveMagic = new OffensiveBag<>();
         this.offensiveMagic.add(m1);
     }
 
@@ -77,8 +77,18 @@ final public class Wizard extends Figure {
     }
 
     @Override
+    protected Iterable<OffensiveObject> getAllOffensiveObjects() {
+        return this.offensiveMagic;
+    }
+
+    @Override
+    protected Iterable<DefensiveObject> getAllDefensiveObjects() {
+        return this.defensiveMagic;
+    }
+
+    @Override
     public Wizard clone() throws CloneNotSupportedException {
-        return new Wizard(this.experience_points, this.life_points, this.defensiveMagic.getBestDefensiveObject());
+        return new Wizard(this.experience_points, this.life_points, (Magic) this.defensiveMagic.getBestDefensiveObject());
     }
 
     @Override

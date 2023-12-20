@@ -1,8 +1,13 @@
 package it.unive.dais.po1.dandd.figures;
 
+import it.unive.dais.po1.dandd.UnrestorableException;
+import it.unive.dais.po1.dandd.objects.DaDObject;
 import it.unive.dais.po1.dandd.objects.defensive.DefensiveObject;
 import it.unive.dais.po1.dandd.objects.offensive.OffensiveObject;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Objects;
 
 /**
@@ -126,6 +131,32 @@ public abstract class Figure extends Object {
         this.collectOffensiveObject(offensiveweap);
     }
 
+    public final void restore() {
+        for(DefensiveObject d : this.getAllDefensiveObjects())
+            restore(d);
+        for(OffensiveObject d : this.getAllOffensiveObjects())
+            restore(d);
+    }
+    private void restore(DaDObject obj) {
+        Class cls = obj.getClass();
+        try {
+            for (Method m : cls.getDeclaredMethods())
+                if (m.getAnnotation(Restore.class) != null) {
+                    if (m.getParameterCount() == 0) {
+                        m.setAccessible(true);
+                        Restore annotation = m.getAnnotation(Restore.class);
+                        annotation.amount();
+                        m.invoke(obj);
+                    }
+                    else
+                        throw new UnrestorableException("Method " + m.toString() + " should have zero parameters to be annotated as restore");
+                }
+        }
+        catch(IllegalAccessException|InvocationTargetException e) {
+            throw new UnrestorableException("Impossible to invoke the restore method", e);
+        }
+    }
+
     public abstract void collectOffensiveObject(OffensiveObject offensiveweap);
 
     public abstract void collectDefensiveObject(DefensiveObject defeatedprot);
@@ -133,6 +164,10 @@ public abstract class Figure extends Object {
     public abstract OffensiveObject getCurrentOffensiveObject();
 
     public abstract DefensiveObject getCurrentDefensiveObject();
+
+    protected abstract Iterable<OffensiveObject> getAllOffensiveObjects();
+
+    protected abstract Iterable<DefensiveObject> getAllDefensiveObjects();
 
 
     /**

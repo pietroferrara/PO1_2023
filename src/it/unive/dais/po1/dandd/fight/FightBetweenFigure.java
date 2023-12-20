@@ -68,6 +68,8 @@ public class FightBetweenFigure {
                 } else {
                     damageFirstFigure(c1, c2);
                 }
+                c1.restore();
+                c2.restore();
             }
             catch(FigureAlreadyDeadException e) {
                 throw new UnexpectedBehaviorError("The two figures were alive, but then they had no life point", e);

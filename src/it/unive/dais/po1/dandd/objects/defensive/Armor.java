@@ -41,10 +41,10 @@ public class Armor implements DefensiveObject {
 
     public int getStrength() { return this.getInfoDefense();}
 
-    @Restore(percentage = -1, amount = -1)
-    public void restore(int i) {
+    @Restore(amount = 2)
+    public void restore() {
         this.defense = Math.min(
                 this.maximal_defense,
-                this.defense+i);
+                this.defense+2);
     }
 }

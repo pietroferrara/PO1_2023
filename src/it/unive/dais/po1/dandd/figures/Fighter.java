@@ -22,8 +22,8 @@ public class Fighter extends Figure {
         return Fighter.numberOfFighters;
     }
 
-    private OffensiveBag<Sword> swords;
-    private DefensiveBag<Armor> armors;
+    private OffensiveBag<OffensiveObject> swords;
+    private DefensiveBag<DefensiveObject> armors;
 
     /**
      * Initializes a fighter without any experience and with full life points
@@ -69,19 +69,6 @@ public class Fighter extends Figure {
                 ", armors=" + armors +", "+super.toString();
     }
 
-    @Restore(amount = 1)
-    public void restoreOffensiveWeapons() {
-        for(Sword s : swords)
-            s.restore(1);
-    }
-
-    @Restore(amount = 1)
-    @SuppressWarnings({"unused"})
-    public void restoreDefensiveWeapons() {
-        for(Armor a : armors)
-            a.restore(1);
-    }
-
 
     @Override
     public void collectDefensiveObject(DefensiveObject defeatedprot) {
@@ -97,5 +84,15 @@ public class Fighter extends Figure {
     @Override
     public DefensiveObject getCurrentDefensiveObject() {
         return this.armors.getBestDefensiveObject();
+    }
+
+    @Override
+    protected Iterable<OffensiveObject> getAllOffensiveObjects() {
+        return this.swords;
+    }
+
+    @Override
+    protected Iterable<DefensiveObject> getAllDefensiveObjects() {
+        return this.armors;
     }
 }

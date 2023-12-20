@@ -58,10 +58,10 @@ public class Sword implements OffensiveObject {
     public int getStrength() { return this.getInnerDamage();}
 
 
-    @Restore(percentage = -1, amount = -1)
-    public void restore(int i) {
+    @Restore(amount = 1)
+    public void restore() {
         this.damage = Math.min(
                 this.maximal_damage,
-                this.damage+i);
+                this.damage+1);
     }
 }
