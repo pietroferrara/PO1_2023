@@ -1,11 +1,10 @@
 package it.unive.dais.po1.dandd;
 
-import it.unive.dais.po1.dandd.figures.Fighter;
 import it.unive.dais.po1.dandd.figures.Figure;
-import it.unive.dais.po1.dandd.figures.Wizard;
 import it.unive.dais.po1.dandd.objects.defensive.Armor;
 import it.unive.dais.po1.dandd.objects.offensive.fighter.Sword;
 import it.unive.dais.po1.dandd.objects.offensive.magic.Magic;
+import org.reflections.Reflections;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -13,6 +12,7 @@ import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 public class Initializer {
 
@@ -21,11 +21,14 @@ public class Initializer {
             System.out.println(f);
     }
 
-    private static Iterable<Class> getAllClasses() {
-        Collection<Class> result = new HashSet<>();
+    private static Set<Class<? extends Figure>> getAllClasses() {
+        /*Collection<Class> result = new HashSet<>();
         result.add(Fighter.class);
         result.add(Wizard.class);
-        return result;
+        return result;*/
+        Reflections reflections = new Reflections("it.dais.unive.po1.dandd");
+
+        return reflections.getSubTypesOf(Figure.class);
     }
 
     public static Iterable<Figure> getAllExistingFigures() throws InvocationTargetException, InstantiationException, IllegalAccessException {
